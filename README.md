@@ -68,6 +68,15 @@ College and university students routinely manage diverse academic deliverables a
 - Node.js (v18 or higher)
 - npm (v9 or higher)
 
+### 🌐 Live Application Links (Active Now)
+
+Click either link below to access the running system in your browser:
+
+- **🚀 Open DueWise Web App:** **[http://localhost:5173](http://localhost:5173)**
+- **📡 Backend API Status:** **[http://localhost:5000/api/health](http://localhost:5000/api/health)**
+
+---
+
 ### Option A: Run Pre-configured Setup
 
 1. **Start Backend Server:**
@@ -75,14 +84,14 @@ College and university students routinely manage diverse academic deliverables a
    cd backend
    npm run dev
    ```
-   *Runs on `http://localhost:5000` with active SQLite database and automated cron scheduler.*
+   *Runs on [http://localhost:5000](http://localhost:5000) with active SQLite database and automated cron scheduler.*
 
 2. **Start Frontend Client:**
    ```bash
    cd frontend
    npm run dev
    ```
-   *Runs on `http://localhost:5173` with Vite proxy configured to backend.*
+   *Runs on [http://localhost:5173](http://localhost:5173) with Vite proxy configured to backend.*
 
 ---
 
