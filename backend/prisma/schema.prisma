@@ -1,0 +1,105 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+model User {
+  id           String         @id @default(cuid())
+  name         String
+  email        String         @unique
+  passwordHash String
+  role         String         @default("STUDENT")
+  college      String?        @default("Apex Institute of Technology")
+  department   String?        @default("Computer Science & Engineering")
+  semester     String?        @default("6th Semester")
+  avatar       String?
+  createdAt    DateTime       @default(now())
+  updatedAt    DateTime       @updatedAt
+
+  subjects      Subject[]
+  assignments   Assignment[]
+  notifications Notification[]
+  settings      UserSettings?
+}
+
+model Subject {
+  id          String       @id @default(cuid())
+  name        String
+  code        String
+  instructor  String?
+  color       String       @default("#3B82F6")
+  department  String?
+  semester    String?
+  description String?
+  userId      String
+  user        User         @relation(fields: [userId], references: [id], onDelete: Cascade)
+  assignments Assignment[]
+  createdAt   DateTime     @default(now())
+  updatedAt   DateTime     @updatedAt
+
+  @@index([userId])
+}
+
+model Assignment {
+  id              String         @id @default(cuid())
+  title           String
+  description     String?
+  subjectId       String
+  subject         Subject        @relation(fields: [subjectId], references: [id], onDelete: Cascade)
+  userId          String
+  user            User           @relation(fields: [userId], references: [id], onDelete: Cascade)
+  dueDate         DateTime
+  priority        String         @default("MEDIUM") // "HIGH", "MEDIUM", "LOW"
+  status          String         @default("PENDING") // "PENDING", "IN_PROGRESS", "COMPLETED", "OVERDUE"
+  submissionType  String         @default("HOMEWORK") // "LAB_RECORD", "TECHNICAL_REPORT", "HOMEWORK", "DPP", "MINI_PROJECT", "ESSAY", "OTHER"
+  estimatedHours  Float?         @default(2.0)
+  actualHours     Float?
+  referenceUrl    String?
+  attachmentNotes String?
+  completedAt     DateTime?
+  reminderOffsets String         @default("[1,24,48]") // JSON array string e.g. [1, 24, 48]
+  notifications   Notification[]
+  createdAt       DateTime       @default(now())
+  updatedAt       DateTime       @updatedAt
+
+  @@index([userId])
+  @@index([subjectId])
+  @@index([dueDate])
+  @@index([status])
+}
+
+model Notification {
+  id           String      @id @default(cuid())
+  userId       String
+  user         User        @relation(fields: [userId], references: [id], onDelete: Cascade)
+  assignmentId String?
+  assignment   Assignment? @relation(fields: [assignmentId], references: [id], onDelete: Cascade)
+  title        String
+  message      String
+  type         String      @default("REMINDER") // "URGENT", "UPCOMING", "OVERDUE", "SYSTEM", "COMPLETED"
+  isRead       Boolean     @default(false)
+  scheduledFor DateTime?
+  sentAt       DateTime    @default(now())
+  createdAt    DateTime    @default(now())
+
+  @@index([userId])
+  @@index([isRead])
+}
+
+model UserSettings {
+  id                     String   @id @default(cuid())
+  userId                 String   @unique
+  user                   User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+  emailNotifications     Boolean  @default(true)
+  browserNotifications   Boolean  @default(true)
+  urgentThresholdHours   Int      @default(24)
+  upcomingThresholdHours Int      @default(72)
+  defaultPriority        String   @default("MEDIUM")
+  theme                  String   @default("system")
+  createdAt              DateTime @default(now())
+  updatedAt              DateTime @updatedAt
+}

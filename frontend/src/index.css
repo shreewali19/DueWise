@@ -1,0 +1,158 @@
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+@layer base {
+  :root {
+    --background: 44 67% 97%;
+    --foreground: 30 14% 10%;
+    --card: 44 50% 98%;
+    --card-foreground: 30 14% 10%;
+    --primary: 15 72% 51%;
+    --primary-foreground: 0 0% 100%;
+    --border: 39 25% 82%;
+  }
+
+  html, body {
+    margin: 0;
+    padding: 0;
+    font-family: 'IBM Plex Sans', -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif;
+    background-color: #fef9ef;
+    color: #1d1c16;
+  }
+
+  h1, h2, h3, h4, h5, h6 {
+    font-family: 'Bricolage Grotesque', sans-serif;
+    letter-spacing: -0.015em;
+  }
+
+  code, kbd, samp, pre, .font-mono {
+    font-family: 'JetBrains Mono', monospace;
+  }
+}
+
+/* Tactile Notebook & Ledger Paper Utilities */
+.paper-sheet {
+  background-color: #ffffff;
+  border: 1px solid #ddd5c4;
+  box-shadow: 2px 2px 0px #ddd5c4;
+}
+
+.paper-sheet-subtle {
+  background-color: #f8f3e9;
+  border: 1px solid #ddd5c4;
+}
+
+.paper-sheet-card {
+  background-color: #fbf8f2;
+  border: 1px solid #ddd5c4;
+  box-shadow: 2px 2px 0px #ddd5c4;
+  transition: all 0.15s ease-in-out;
+}
+
+.paper-sheet-card:hover {
+  transform: translateY(-1px);
+  box-shadow: 3px 3px 0px #ddd5c4;
+}
+
+/* Notebook Ruled Guide Lines */
+.notebook-ruled-bg {
+  background-size: 100% 32px;
+  background-image: linear-gradient(to bottom, transparent 31px, rgba(221, 213, 196, 0.45) 32px);
+}
+
+.notebook-red-margin {
+  position: relative;
+}
+
+.notebook-red-margin::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  bottom: 0;
+  left: 4.5rem;
+  width: 2px;
+  background-color: rgba(217, 88, 43, 0.75);
+  pointer-events: none;
+  z-index: 5;
+}
+
+/* Monospaced Stamp Badges */
+.stamp-badge {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 11px;
+  font-weight: 600;
+  line-height: 14px;
+  letter-spacing: 0.08em;
+  text-transform: uppercase;
+  padding: 2px 6px;
+  border-radius: 2px;
+  border-width: 1px;
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+}
+
+.stamp-badge-urgent {
+  color: #d9582b;
+  border-color: #d9582b;
+  background-color: #fdf4f0;
+}
+
+.stamp-badge-completed {
+  color: #3f7d58;
+  border-color: #3f7d58;
+  background-color: #f0f6f2;
+}
+
+.stamp-badge-draft {
+  color: #c98a1b;
+  border-color: #c98a1b;
+  background-color: #fcf8ee;
+}
+
+.stamp-badge-course {
+  color: #5b7186;
+  border-color: #ddd5c4;
+  background-color: #f6f1e7;
+}
+
+/* Tactile Custom Scrollbar */
+::-webkit-scrollbar {
+  width: 6px;
+  height: 6px;
+}
+
+::-webkit-scrollbar-track {
+  background: #f8f3e9;
+}
+
+::-webkit-scrollbar-thumb {
+  background: #ddd5c4;
+  border-radius: 4px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+  background: #8c7169;
+}
+
+/* Glass Panel & Modal Adaptations for Academic Ledger */
+.glass-panel {
+  background-color: #ffffff;
+  border: 1px solid #ddd5c4;
+  box-shadow: 2px 2px 0px #ddd5c4;
+}
+
+.glass-panel-hover:hover {
+  border-color: #d9582b;
+  transform: translateY(-1px);
+  box-shadow: 3px 3px 0px #ddd5c4;
+}
+
+/* Modal and Drawer backdrop */
+.modal-paper-content {
+  background-color: #ffffff;
+  border: 1px solid #ddd5c4;
+  box-shadow: 4px 4px 0px rgba(31, 42, 55, 0.15);
+}
+

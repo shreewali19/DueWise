@@ -1,0 +1,27 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200" fill="none">
+  <defs>
+    <linearGradient id="dueWiseGrad" x1="20" y1="20" x2="180" y2="180" gradientUnits="userSpaceOnUse">
+      <stop offset="0%" stop-color="#E8633A" />
+      <stop offset="50%" stop-color="#D9582B" />
+      <stop offset="100%" stop-color="#A73406" />
+    </linearGradient>
+    <linearGradient id="amberAccent" x1="0" y1="0" x2="1" y2="1">
+      <stop offset="0%" stop-color="#FDB648" />
+      <stop offset="100%" stop-color="#D98A1B" />
+    </linearGradient>
+  </defs>
+  <rect x="18" y="18" width="164" height="164" rx="42" fill="url(#dueWiseGrad)" />
+  <rect x="26" y="26" width="148" height="148" rx="34" stroke="#FFF8EF" stroke-opacity="0.25" stroke-width="2" stroke-dasharray="6 4" />
+  <path d="M100 52 L150 72 L100 92 L50 72 Z" fill="#FFF8EF" />
+  <path d="M68 83 V105 C68 116 82 124 100 124 C118 124 132 116 132 105 V83 L100 95 Z" fill="#FFF8EF" fill-opacity="0.92" />
+  <path d="M140 76 V112 L144 116" stroke="url(#amberAccent)" stroke-width="3.5" stroke-linecap="round" />
+  <circle cx="140" cy="76" r="3" fill="#FDB648" />
+  <circle cx="100" cy="118" r="34" fill="#1F1B11" stroke="#FFF8EF" stroke-width="3.5" />
+  <line x1="100" y1="89" x2="100" y2="93" stroke="#FDB648" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="100" y1="143" x2="100" y2="147" stroke="#FDB648" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="71" y1="118" x2="75" y2="118" stroke="#FDB648" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="125" y1="118" x2="129" y2="118" stroke="#FDB648" stroke-width="2.5" stroke-linecap="round" />
+  <line x1="100" y1="118" x2="92" y2="102" stroke="#FFF8EF" stroke-width="3" stroke-linecap="round" />
+  <path d="M92 118 L98 125 L114 109" stroke="#43815B" stroke-width="4.5" stroke-linecap="round" stroke-linejoin="round" />
+  <circle cx="100" cy="118" r="3" fill="#FFF8EF" />
+</svg>
